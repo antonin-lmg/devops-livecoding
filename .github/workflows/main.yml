@@ -23,13 +23,12 @@ jobs:
       #finally build your app with the latest command
       - name: Build and test with Maven
         run: |
-          cd simple-api
           mvn -B verify sonar:sonar
           -Dsonar.projectKey=antonin-lmg_devops-livecoding
           -Dsonar.organization=antonin-lmg
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          --file ./pom.xml
+          --file ./simple-api/pom.xml
 
 
           

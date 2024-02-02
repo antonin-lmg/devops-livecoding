@@ -23,13 +23,13 @@ jobs:
       #finally build your app with the latest command
       - name: Build and test with Maven
         run: |
-          mvn -B verify sonar:sonar
-          -Dsonar.projectKey=antonin-lmg_devops-livecoding
-          -Dsonar.organization=antonin-lmg
-          -Dsonar.host.url=https://sonarcloud.io
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          --file ./simple-api/pom.xml
-
+          cd simple-api
+          mvn -B verify sonar:sonar -e -X\
+          -Dsonar.projectKey=antonin-lmg_devops-livecoding \
+          -Dsonar.organization=antonin-lmg \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+          --file ./pom.xml
 
           
   # define job to build and publish docker image

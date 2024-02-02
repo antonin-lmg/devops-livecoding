@@ -24,11 +24,11 @@ jobs:
       - name: Build and test with Maven
         run: |
           cd simple-api
-          mvn -B verify sonar:sonar -e -X\
-          -Dsonar.projectKey=antonin-lmg_devops-livecoding \
-          -Dsonar.organization=antonin-lmg \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+          mvn -B verify sonar:sonar -e -X
+          -Dsonar.projectKey=antonin-lmg_devops-livecoding 
+          -Dsonar.organization=antonin-lmg 
+          -Dsonar.host.url=https://sonarcloud.io 
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }} 
           --file ./pom.xml
 
           
